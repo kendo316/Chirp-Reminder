@@ -240,9 +240,9 @@ app.post("/api/admin/test-send/:userId", verifyAdmin, async (req, res) => {
 // ─── Core Digest Logic ──────────────────────────────────────────────────────
 
 async function sendDigestToUser(userId, user) {
-  const ebirdApiKey = process.env.EBIRD_API_KEY || functions.config().ebird?.api_key;
-  const resendApiKey = process.env.RESEND_API_KEY || functions.config().resend?.api_key;
-  const baseUrl = process.env.BASE_URL || functions.config().app?.base_url || "https://chirpreminder.web.app";
+  const ebirdApiKey = process.env.EBIRD_API_KEY;
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const baseUrl = process.env.BASE_URL || "https://chirp-reminder.web.app";
 
   if (!ebirdApiKey) throw new Error("EBIRD_API_KEY not configured");
   if (!resendApiKey) throw new Error("RESEND_API_KEY not configured");
