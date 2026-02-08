@@ -65,7 +65,10 @@ async function apiGet(path) {
   var res = await fetch(path, {
     headers: { Authorization: "Bearer " + authToken },
   });
-  if (!res.ok) throw new Error("API error: " + res.status);
+  if (!res.ok) {
+    var errBody = await res.json().catch(function() { return {}; });
+    throw new Error(errBody.error || "API error: " + res.status);
+  }
   return res.json();
 }
 
@@ -78,7 +81,10 @@ async function apiPost(path, body) {
     },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error("API error: " + res.status);
+  if (!res.ok) {
+    var errBody = await res.json().catch(function() { return {}; });
+    throw new Error(errBody.error || "API error: " + res.status);
+  }
   return res.json();
 }
 
@@ -87,7 +93,10 @@ async function apiDelete(path) {
     method: "DELETE",
     headers: { Authorization: "Bearer " + authToken },
   });
-  if (!res.ok) throw new Error("API error: " + res.status);
+  if (!res.ok) {
+    var errBody = await res.json().catch(function() { return {}; });
+    throw new Error(errBody.error || "API error: " + res.status);
+  }
   return res.json();
 }
 
