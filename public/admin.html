@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - ChirpReminder</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-brand">ChirpReminder</a>
+      <div class="nav-links">
+        <a href="/">Back to Site</a>
+        <a href="#" id="logoutBtn" style="display:none;">Log Out</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form (shown when not authenticated) -->
+  <div id="loginSection">
+    <div class="container">
+      <div class="admin-login">
+        <h2>Admin Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="adminEmail">Email</label>
+            <input type="email" id="adminEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="adminPassword">Password</label>
+            <input type="password" id="adminPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Log In</button>
+          <div class="form-message" id="loginMessage"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard (shown when authenticated) -->
+  <div id="adminSection" style="display:none;">
+    <div class="container" style="padding-top:32px;padding-bottom:64px;">
+
+      <div class="admin-header">
+        <h2>Admin Dashboard</h2>
+        <span id="adminUser" style="color:var(--text-light);font-size:0.9rem;"></span>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <span class="stat-number" id="statTotal">-</span>
+          <span class="stat-label">Total Subscribers</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statActive">-</span>
+          <span class="stat-label">Active</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statSent">-</span>
+          <span class="stat-label">Emails Sent (recent)</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" id="statFailed">-</span>
+          <span class="stat-label">Failed (recent)</span>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-panel="subscribers">Subscribers</button>
+        <button class="admin-tab" data-panel="tips">Seasonal Tips</button>
+        <button class="admin-tab" data-panel="logs">Email Logs</button>
+      </div>
+
+      <!-- Subscribers Panel -->
+      <div class="admin-panel active" id="panel-subscribers">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Zip Code</th>
+              <th>Region</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subscribersTableBody">
+            <tr><td colspan="5" style="text-align:center;color:var(--text-light);">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tips Panel -->
+      <div class="admin-panel" id="panel-tips">
+        <div class="tip-form" id="tipForm">
+          <h3 style="margin-bottom:16px;">Add / Edit Tip</h3>
+          <input type="hidden" id="tipId">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipWeek">Week of Year (1-52)</label>
+              <input type="number" id="tipWeek" min="1" max="52" required>
+            </div>
+            <div class="form-group">
+              <label for="tipZone">Climate Zone</label>
+              <input type="text" id="tipZone" value="6a" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tipTitle">Title</label>
+            <input type="text" id="tipTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="tipContent">Content</label>
+            <textarea id="tipContent" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="tipCategory">Category</label>
+            <select id="tipCategory">
+              <option value="feeding">Feeding</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="general">General</option>
+            </select>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-primary" style="width:auto;" id="saveTipBtn">Save Tip</button>
+            <button class="btn btn-secondary" style="width:auto;" id="clearTipBtn">Clear Form</button>
+          </div>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Week</th>
+              <th>Zone</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tipsTableBody">
+            <tr><td colspan="5" style="text-align:center;color:var(--text-light);">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Logs Panel -->
+      <div class="admin-panel" id="panel-logs">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Email</th>
+              <th>Region</th>
+              <th>Status</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="logsTableBody">
+            <tr><td colspan="5" style="text-align:center;color:var(--text-light);">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

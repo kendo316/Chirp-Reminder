@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection - only Cloud Functions can read/write
+    match /users/{userId} {
+      allow read, write: if false;
+    }
+
+    // Seasonal tips - only Cloud Functions can read/write
+    match /seasonalTips/{tipId} {
+      allow read, write: if false;
+    }
+
+    // Email logs - only Cloud Functions can read/write
+    match /emailLogs/{logId} {
+      allow read, write: if false;
+    }
+
+    // eBird cache - only Cloud Functions can read/write
+    match /ebirdCache/{cacheId} {
+      allow read, write: if false;
+    }
+
+    // Region mappings - only Cloud Functions can read/write
+    match /regionMappings/{mappingId} {
+      allow read, write: if false;
+    }
+  }
+}

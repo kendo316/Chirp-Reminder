@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChirpReminder - Weekly Bird Feeding Digests</title>
+  <meta name="description" content="Get personalized weekly bird feeding digests based on real sightings in your area. Free email service for backyard birders.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-brand">ChirpReminder</a>
+      <div class="nav-links">
+        <a href="#features">How It Works</a>
+        <a href="#preview">Sample Email</a>
+        <a href="#signup">Sign Up</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Know Your Backyard Birds</h1>
+      <p>
+        Every Monday morning, get a personalized digest of the birds active in your area
+        with seasonal feeding tips to keep them coming back.
+      </p>
+      <a href="#signup" class="cta-button">Start Getting Digests</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon" role="img" aria-label="mailbox">&#x1F4EC;</span>
+          <h3>Weekly Digests</h3>
+          <p>Every Monday at 6am, a curated email lands in your inbox with everything you need to know about your local birds.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" role="img" aria-label="bird">&#x1F426;</span>
+          <h3>Real Sighting Data</h3>
+          <p>We pull the top 5 most-reported species in your area from eBird, the world's largest bird observation database.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" role="img" aria-label="seedling">&#x1F331;</span>
+          <h3>Seasonal Tips</h3>
+          <p>Get feeding advice matched to the time of year and your climate zone, from winter high-energy foods to summer water tips.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Email Preview -->
+  <section class="preview-section" id="preview">
+    <div class="container">
+      <h2>What You'll Receive</h2>
+      <div class="email-preview">
+        <div class="email-preview-header">
+          <h3>ChirpReminder</h3>
+          <span>Your Weekly Bird Feeding Digest</span>
+        </div>
+        <div class="email-preview-body">
+          <h4>Birds Active This Week</h4>
+          <ul class="bird-list">
+            <li><span class="bird-name">Northern Cardinal</span> <span class="bird-sci">Cardinalis cardinalis</span></li>
+            <li><span class="bird-name">Blue Jay</span> <span class="bird-sci">Cyanocitta cristata</span></li>
+            <li><span class="bird-name">Dark-eyed Junco</span> <span class="bird-sci">Junco hyemalis</span></li>
+            <li><span class="bird-name">American Robin</span> <span class="bird-sci">Turdus migratorius</span></li>
+            <li><span class="bird-name">Tufted Titmouse</span> <span class="bird-sci">Baeolophus bicolor</span></li>
+          </ul>
+
+          <h4>This Week's Feeding Tip</h4>
+          <div class="tip-box">
+            <strong>Late Winter High-Energy Feeding</strong>
+            Birds burn through calories fast in cold weather. Stock feeders with black oil sunflower seeds and suet cakes to help them through the last stretch of winter.
+          </div>
+
+          <h4>Maintenance Reminder</h4>
+          <p style="font-size:0.9rem;color:#555;margin-top:8px;">
+            Scrub and refill your birdbath with fresh water. Even in winter, birds need clean water for drinking and bathing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="signup-section" id="signup">
+    <div class="container">
+      <h2>Get Your Free Weekly Digest</h2>
+      <p>Just your email and zip code. Unsubscribe anytime.</p>
+      <form class="signup-form" id="signupForm">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="zipCode">Zip Code</label>
+          <input type="text" id="zipCode" name="zipCode" placeholder="65201" maxlength="5" pattern="\d{5}" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Sign Up for Free</button>
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">What areas do you cover?</div>
+          <div class="faq-answer">
+            <p>We currently serve Missouri, focusing on the Columbia, Kansas City, and Pacific/St. Louis metro areas. We plan to expand coverage over time.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Where does the bird data come from?</div>
+          <div class="faq-answer">
+            <p>We use eBird, a real-time bird observation database managed by the Cornell Lab of Ornithology. Data is based on actual sightings reported by birders in your area over the past 7 days.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">When do emails arrive?</div>
+          <div class="faq-answer">
+            <p>Digests are sent every Monday morning around 6:00 AM Central Time, so they're ready when you wake up to start your week.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is it really free?</div>
+          <div class="faq-answer">
+            <p>Yes, completely free. We built this because we love birds and wanted to help fellow birders. No ads, no upsells.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How do I unsubscribe?</div>
+          <div class="faq-answer">
+            <p>Every email includes an unsubscribe link at the bottom. One click and you're removed immediately. No questions asked.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I change my zip code?</div>
+          <div class="faq-answer">
+            <p>Currently, you can unsubscribe and re-sign up with your new zip code. We're working on a profile management feature.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>ChirpReminder &mdash; Helping you feed the birds that feed your soul</p>
+      <p style="margin-top:8px;">Bird data powered by <a href="https://ebird.org" target="_blank" rel="noopener">eBird</a> (Cornell Lab of Ornithology)</p>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

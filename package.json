@@ -1,0 +1,16 @@
+{
+  "name": "chirp-reminder",
+  "version": "1.0.0",
+  "description": "Automated weekly bird feeding digest email service",
+  "private": true,
+  "scripts": {
+    "serve": "firebase emulators:start",
+    "deploy": "firebase deploy",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "seed": "node scripts/seedData.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
