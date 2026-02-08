@@ -1,12 +1,12 @@
 // ─── Firebase Config ─────────────────────────────────────────────────────────
 // Replace with your actual Firebase config
 var firebaseConfig = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
+  apiKey: "AIzaSyD61t9dJWJGD1YTBTuIKH94-Td6RWX9SmA",
   authDomain: "chirp-reminder.firebaseapp.com",
   projectId: "chirp-reminder",
-  storageBucket: "chirp-reminder.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  storageBucket: "chirp-reminder.firebasestorage.app",
+  messagingSenderId: "682234919069",
+  appId: "1:682234919069:web:1657171d901664fb7b3c74",
 };
 
 firebase.initializeApp(firebaseConfig);
