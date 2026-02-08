@@ -15,13 +15,6 @@
         { "fieldPath": "weekOfYear", "order": "ASCENDING" },
         { "fieldPath": "climateZone", "order": "ASCENDING" }
       ]
-    },
-    {
-      "collectionGroup": "emailLogs",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "sentAt", "order": "DESCENDING" }
-      ]
     }
   ],
   "fieldOverrides": []
