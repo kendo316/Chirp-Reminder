@@ -21,7 +21,7 @@
     {
       "source": "functions",
       "codebase": "default",
-      "runtime": "nodejs18"
+      "runtime": "nodejs20"
     }
   ],
   "firestore": {
