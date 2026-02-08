@@ -152,7 +152,7 @@ async function sendDigestEmail(apiKey, { to, sightings, tip, maintenanceReminder
   const text = buildEmailText({ sightings, tip, maintenanceReminder, unsubscribeUrl });
 
   const { data, error } = await client.emails.send({
-    from: "ChirpReminder <digest@chirpreminder.com>",
+    from: "ChirpReminder <onboarding@resend.dev>",
     to: [to],
     subject: "Your Weekly Bird Feeding Digest",
     html,
